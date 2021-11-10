@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    404 Not Found
+{% endblock title %}
+    
+{% block content %}
+    <div class="container">
+        <h1>404 Not Found</h1>
+        <p>The requested thing is not found on this server</p>
+        <a href="{% url 'polls:home' %}">Go Home</a>
+    </div>
+{% endblock content %}
+    

@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <title>{% block title %}{% endblock title %} | DjangoPolls</title>
+</head>
+
+<body>
+    <div class="main">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'polls:home' %}">DjangoPolls</a>
+            </button>
+            <div class=" navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">               
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                </li>
+                {% if user.is_staff %}
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="/admin/">Admin</a>
+                  
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </nav>
+{% block content %}
+    
+{% endblock content %}
+<style>
+a {
+color: rgb(64, 187, 64);
+}
+a:hover{ 
+  color: rgb(44, 136, 44);
+}
+h1{
+  color: rgb(77, 126, 77);
+}
+
+h2{
+  color: rgb(77, 126, 77);
+}
+
+h3{
+  color: rgb(77, 126, 77);
+}
+
+h4{
+  color: rgb(77, 126, 77);
+}
+
+h5{
+  color: rgb(77, 126, 77);
+}
+
+h6{
+  color: rgb(77, 126, 77);
+}
+</style>
+</body>
+
+</html>

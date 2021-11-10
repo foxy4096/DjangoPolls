@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{question.question_text}}
+{% endblock title %}
+
+
+{% block content %}
+<div class="container">
+    <form action="{% url 'polls:vote' %}" method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <legend>
+                <h1>{{ question.question_text }}</h1>
+                <hr>
+                <h3>No. of votes: {{question.voted.all | length}}</h3>
+            </legend>
+            
+            {% if user in question.voted.all %}
+            <p>You have already voted!</p>
+            <a href="{% url 'polls:result' question.pk %}">View Result</a>
+            {% else %}
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            {% for choice in question.choice_set.all %}
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+            {% endfor %}
+        </fieldset>
+        <br>
+        <input type="submit" class="btn btn-success" value="Vote">
+        {% endif %}
+    </form>
+</div>
+{% endblock content %}
