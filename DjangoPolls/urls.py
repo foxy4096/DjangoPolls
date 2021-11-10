@@ -15,13 +15,16 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
+
 from django.contrib import admin
-from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', include('core.urls')),
+    path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
     path('accounts/', include('django.contrib.auth.urls'))
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
