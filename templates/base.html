@@ -12,7 +12,7 @@
 
 <body>
     <div class="main">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3da9fc">
           <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'polls:home' %}">DjangoPolls</a>
             </button>
@@ -42,33 +42,24 @@
 {% endblock content %}
 <style>
 a {
-color: rgb(64, 187, 64);
+color: #3da9fc;
 }
 a:hover{ 
-  color: rgb(44, 136, 44);
+  color: #3394dd;
 }
 h1{
-  color: rgb(77, 126, 77);
+  color: #094067;
+}
+p{
+  color: #5f6c7b;
 }
 
-h2{
-  color: rgb(77, 126, 77);
+.btn{
+  background-color: #3da9fc;
+  color: #fffffe;
 }
-
-h3{
-  color: rgb(77, 126, 77);
-}
-
-h4{
-  color: rgb(77, 126, 77);
-}
-
-h5{
-  color: rgb(77, 126, 77);
-}
-
-h6{
-  color: rgb(77, 126, 77);
+body{
+  background-color: #fffffe;
 }
 </style>
 </body>
